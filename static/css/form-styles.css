@@ -1,0 +1,15 @@
+form .ingredients {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ingredients > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+}
