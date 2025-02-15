@@ -1,0 +1,30 @@
+.recipes-list > li {
+  margin: 20px 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipes-list > li > a {
+  padding: 10px 20px;
+}
+
+.recipes-list > li > a:hover {
+  background-color: rgba(220, 220, 220, 0.445);
+}
+
+.btn-menu {
+  display: flex;
+  gap: 1em;
+}
+
+.btn-menu > p > a {
+  background-color: #d0cfcf;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.btn-menu > p > a:hover {
+  background-color: #d0cfcfbe;
+}

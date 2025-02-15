@@ -10,20 +10,15 @@
 {% block body %}
 
 <h2>Find a recipe</h2>
-<form action="" method="get" class="search-bar">
+<form action="/recipes" method="get" class="search-bar">
     <legend> Type a recipe name or an ingredient name: </legend>
-    <input type="search" name="" id="" placeholder ="Big Mac">
+    <input type="search" name="term" placeholder ="Big Mac">
     <button type="submit">Find Meal</button>
 </form>
 
 <h2>Add a recipe</h2>
-    <p class="btn"><a href="/add-recipe">Add Meal</a></button>
-
-<h2>Edit a recipe</h2>
-<form action="" method="get" class="edit-form">
-    <legend> Type a recipe name or an ingredient name: </legend>
-    <input type="search" name="" id="" placeholder ="Big Mac">
-    <button type="submit">Edit Recipe</button>
+<form action="/add-recipe">
+    <input type="submit" value="Add Meal" />
 </form>
 
 {% endblock %}

@@ -1,6 +1,55 @@
 {% extends 'layouts/base.html' %}
 
-{ % block head % }
+{% block head %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/form-styles.css')}}">
 <title>RecipeDB - Edit recipe</title>
+{% endblock %}
+
+
+{% block body %}
+
+<form action="/recipes" method="get" class="search-bar">
+    
+    <label for="recipe_name">Name</label>
+    <input type="text" name="name" id="recipe_name" value="{{recipe_elements[0]}}">
+
+    <label for="instructions">Instructions</label>
+    <textarea name="instructions" id="instructions">{{recipe_elements[2]}}</textarea>
+
+    <label for="recipe_picture_url">Picture URL</label>
+    <input type="text" name="picture_url" id="recipe_picture_url" value="{{recipe_elements[1]}}">
+
+    <fieldset class="ingredients">
+
+        {% for i in ingredients %}
+        <div>
+            <label for="amount{{loop.index0}}">Amount</label>
+            <input type="text" name="amount{{loop.index0}}" id="amount{{loop.index0}}" value="{{i[0]}}">
+        </div>
+        <div>
+            <label for="ingredient{{loop.index0}}">Ingredient</label> 
+            <input type="text" name="ingredient{{loop.index0}}" id="ingredient${counter}" value="{{i[1]}}">
+        </div>
+        {% endfor %}
+        <button type="button" id="plus">+</button>
+    </fieldset>
+
+    <input type="hidden" name="modified_date" value="{{recipe_elements[3]}}">
+
+    <button type="submit"> Edit Recipe </button>
+
+</form>
+
+<form action="/recipes" class="delForm">
+    <fieldset>
+        <h3>WARNING</h3>
+        <p>Once the recipe is deleted it cannot be undone</p>
+        <button type="submit"> Delete Recipe</button>
+    </fieldset>
+</form>
+
+{% endblock %}
+
+{% block afterbody %}
+<script src="{{ url_for('static', filename='js/add-multiple-ingredients.js') }}"></script>
 {% endblock %}

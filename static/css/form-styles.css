@@ -1,15 +1,30 @@
+fieldset {
+  position: relative;
+}
+
 form .ingredients {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
   gap: 0.4rem;
+  position: relative;
 }
 
 .ingredients > div {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   gap: 0.4rem;
+}
+
+#plus {
+  margin: 1rem;
+  position: absolute;
+  right: 0;
+}
+
+.delForm {
+  margin: 1.5rem 0;
 }

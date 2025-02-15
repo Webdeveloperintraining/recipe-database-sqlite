@@ -10,7 +10,9 @@
 
 {% block body %}
 
-<form action="" method="post" class="search-bar">
+<p><b>{{message}}</b></p>
+
+<form action="#" method="post" id="add-form">
     
     <label for="recipe_name">Name</label>
     <input type="text" name="name" id="recipe_name">
@@ -22,21 +24,29 @@
     <input type="text" name="picture_url" id="recipe_picture_url">
 
     <fieldset class="ingredients">
-        <div>
-            <label for="amount">Amount</label>
-            <input type="text" name="amount" id="amount">
-        </div>
-        <div>
-            <label for="ingredient">Ingredient</label> 
-            <input type="text" name="ingredient" id="ingredient">
-        </div>
-        <button type="button">+</button>
+        <legend>Add ingredients</legend>
+            <div>
+                <label for="amount0">Amount</label>
+                <input type="text" name="amount0" id="amount0">
+            </div>
+            <div>
+                <label for="ingredient0">Ingredient</label> 
+                <input type="text" name="ingredient0" id="ingredient0">
+            </div>
+        <button type="button" id="plus">+</button>
     </fieldset>
 
-    <input type="hidden" name="modified_date">
+    <input type="hidden" name="modified_date" value="{{date}}">
+    <input type="hidden" name="ingredients" id="ingredients" value="">
 
-    <button type="submit"> Add meal</button>
+    <button type="submit"> Add meal </button>
 
 </form>
+
+{% endblock %}
+
+{% block afterbody %}
+
+<script src="{{ url_for('static', filename='js/add-multiple-ingredients.js') }}"></script>
 
 {% endblock %}

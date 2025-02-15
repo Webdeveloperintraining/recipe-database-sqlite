@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<title>RecipeDB - Add recipe</title>
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<ul class="recipes-list">
+    {% for recipe in recipes %}
+        <li> <a href="/recipes/{{recipe[0]}}">{{ recipe[1] }} </a></li> 
+        
+        <div class="btn-menu">
+            <p><a href="/edit-recipe/{{recipe[0]}}"> Edit Recipe </a></p>
+        </div>
+
+        
+    {% endfor %}
+</ul>
+
+{% endblock %}
