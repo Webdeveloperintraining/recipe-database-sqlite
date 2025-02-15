@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS recipe_ingredients (
 cursor.executescript("""
 INSERT INTO recipes (id,name,picture_url,instructions,modified_date) 
     VALUES
-    (1,"Big Mac","https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg","For the Big Mac sauce, combine all the ingredients in a bowl, season with salt and chill until ready to use.\r\n2. To make the patties, season the mince with salt and pepper and form into 4 balls using about 1/3 cup mince each. Place each onto a square of baking paper and flatten to form into four x 15cm circles. Heat oil in a large frypan over high heat. In 2 batches, cook beef patties for 1-2 minutes each side until lightly charred and cooked through. Remove from heat and keep warm. Repeat with remaining two patties.\r\n3. Carefully slice each burger bun into three acrossways, then lightly toast.\r\n4. To assemble the burgers, spread a little Big Mac sauce over the bottom base. Top with some chopped onion, shredded lettuce, slice of cheese, beef patty and some pickle slices. Top with the middle bun layer, and spread with more Big Mac sauce, onion, lettuce, pickles, beef patty and then finish with more sauce. Top with burger lid to serve.\r\n5. After waiting half an hour for your food to settle, go for a jog.","2025-02-11");
+    (1,"Big Mac","https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg","For the Big Mac sauce, combine all the ingredients in a bowl, season with salt and chill until ready to use.\r\n2. To make the patties, season the mince with salt and pepper and form into 4 balls using about 1/3 cup mince each. Place each onto a square of baking paper and flatten to form into four x 15cm circles. Heat oil in a large frypan over high heat. In 2 batches, cook beef patties for 1-2 minutes each side until lightly charred and cooked through. Remove from heat and keep warm. Repeat with remaining two patties.\r\n3. Carefully slice each burger bun into three acrossways, then lightly toast.\r\n4. To assemble the burgers, spread a little Big Mac sauce over the bottom base. Top with some chopped onion, shredded lettuce, slice of cheese, beef patty and some pickle slices. Top with the middle bun layer, and spread with more Big Mac sauce, onion, lettuce, pickles, beef patty and then finish with more sauce. Top with burger lid to serve.\r\n5. After waiting half an hour for your food to settle, go for a jog.","2025-02-11"),
+    (2,"Corn Flakes with Milk", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kellogg%27s_Corn_Flakes%2C_with_milk.jpg/1024px-Kellogg%27s_Corn_Flakes%2C_with_milk.jpg?20220423212036","Pour the cornflakes into a bowl.Top with your favorite Emborg Low Fat Milk. Serve with a spoon and enjoy!","2025-02-14");
                      
 INSERT INTO ingredients (id,name) 
     VALUES
@@ -55,7 +56,9 @@ INSERT INTO ingredients (id,name)
     (11,"Mustard"),
     (12,"Onion Salt"),
     (13,"Garlic Powder"),
-    (14,"Paprika");
+    (14,"Paprika"),
+    (15,"Milk"),
+    (16,"CornFlakes");
 INSERT INTO recipe_ingredients (recipe_id,ingredient_id,measure) 
     VALUES
     (1,1,"400g"),
@@ -71,7 +74,9 @@ INSERT INTO recipe_ingredients (recipe_id,ingredient_id,measure)
     (1,11,"2 tsp"),
     (1,12,"1 1/2 tsp "),
     (1,13,"1 1/2 tsp "),
-    (1,14,"1/2 tsp");
+    (1,14,"1/2 tsp"),
+    (2,15,"1 L"),
+    (2,16,"100g");
 """)
 
 conn.commit()
