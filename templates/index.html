@@ -2,12 +2,23 @@
 
 {% block head %}
 
+<style>
+    form > input,
+label,button {
+  margin: 0.5em;
+}
+</style>
+
 <title>RecipeDB - Index</title>
 
 {% endblock %}
 
 
 {% block body %}
+
+<div>
+    <b>{{message}}</b>
+</div>
 
 <h2>Find a recipe</h2>
 <form action="/recipes" method="get" class="search-bar">
@@ -17,7 +28,7 @@
 </form>
 
 <h2>Add a recipe</h2>
-<form action="/add-recipe">
+<form action="/add-recipe" method="get">
     <input type="submit" value="Add Meal" />
 </form>
 

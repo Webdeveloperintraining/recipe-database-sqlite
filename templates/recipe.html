@@ -8,22 +8,20 @@
 
 
 {% block body %}
-
-
     
-        <section>
-            <h1>{{recipe_elements[0]}} </h1>
-            <img src="{{recipe_elements[1]}}" alt="{{recipe_elements[0]}} picture">
-            <h2>Ingredients</h2>
-            <ul>
-                {% for i in ingredients %}
-                <li>{{i[0]}} - {{ i[1] }} </li>
-                {% endfor %}
-            </ul>
+    <section>
+        <h1>{{recipe_elements[0]}} </h1>
+        <img src="{{recipe_elements[1]}}" alt="{{recipe_elements[0]}} picture">
+        <h2>Ingredients</h2>
+        <ul>
+            {% for i in ingredients %}
+            <li>{{i[0]}} - {{ i[1] }} </li>
+            {% endfor %}
+        </ul>
 
-            <h2>Instructions</h2>
-            <p>{{recipe_elements[2]}}</p>
+        <h2>Instructions</h2>
+        <p>{{recipe_elements[2]}}</p>
 
-        </section>
+    </section>
 
 {% endblock %}

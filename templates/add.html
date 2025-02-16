@@ -12,7 +12,7 @@
 
 <p><b>{{message}}</b></p>
 
-<form action="#" method="post" id="add-form">
+<form action="#" method="post" id="handlingForm">
     
     <label for="recipe_name">Name</label>
     <input type="text" name="name" id="recipe_name">
@@ -34,10 +34,12 @@
                 <input type="text" name="ingredient0" id="ingredient0">
             </div>
         <button type="button" id="plus">+</button>
+        <!-- <button type="button" id="less">-</button> -->
     </fieldset>
 
     <input type="hidden" name="modified_date" value="{{date}}">
-    <input type="hidden" name="ingredients" id="ingredients" value="">
+    <input type="hidden" name="ingredients" id="ingredients">
+    <input type="hidden" name="amounts" id="amounts">
 
     <button type="submit"> Add meal </button>
 
@@ -47,6 +49,6 @@
 
 {% block afterbody %}
 
-<script src="{{ url_for('static', filename='js/add-multiple-ingredients.js') }}"></script>
+<script src="{{ url_for('static', filename='js/multiple-ingredients.js') }}"></script>
 
 {% endblock %}

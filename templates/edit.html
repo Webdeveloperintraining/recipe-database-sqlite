@@ -8,7 +8,7 @@
 
 {% block body %}
 
-<form action="/recipes" method="get" class="search-bar">
+<form action="/edit-recipe/{{id}}" method="post" id="handlingForm">
     
     <label for="recipe_name">Name</label>
     <input type="text" name="name" id="recipe_name" value="{{recipe_elements[0]}}">
@@ -32,24 +32,29 @@
         </div>
         {% endfor %}
         <button type="button" id="plus">+</button>
+        <!-- <button type="button" id="less">-</button> -->
     </fieldset>
 
-    <input type="hidden" name="modified_date" value="{{recipe_elements[3]}}">
+    <label for="modified_date">Modified Date</label>
+    <input type="text" name="modified_date" id="modified_date" value="{{recipe_elements[3]}}">
+
+    <input type="hidden" name="ingredients" id="ingredients">
+    <input type="hidden" name="amounts" id="amounts">
 
     <button type="submit"> Edit Recipe </button>
-
 </form>
 
-<form action="/recipes" class="delForm">
-    <fieldset>
+<form action="/edit-recipe/{{id}}" method="post" class="delForm">
+    <!-- <fieldset> -->
         <h3>WARNING</h3>
         <p>Once the recipe is deleted it cannot be undone</p>
+        <input type="hidden" name="_method" value="DELETE">
         <button type="submit"> Delete Recipe</button>
-    </fieldset>
+    <!-- </fieldset> -->
 </form>
 
 {% endblock %}
 
 {% block afterbody %}
-<script src="{{ url_for('static', filename='js/add-multiple-ingredients.js') }}"></script>
+<script src="{{ url_for('static', filename='js/multiple-ingredients.js') }}"></script>
 {% endblock %}

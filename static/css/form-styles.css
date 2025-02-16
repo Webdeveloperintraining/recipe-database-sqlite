@@ -1,3 +1,10 @@
+form > input,
+label,
+button,
+textarea {
+  margin: 0.5em;
+}
+
 fieldset {
   position: relative;
 }
@@ -10,6 +17,8 @@ form .ingredients {
   align-items: center;
   gap: 0.4rem;
   position: relative;
+  /* width: 95%;
+  margin: 20px auto; */
 }
 
 .ingredients > div {
@@ -17,12 +26,27 @@ form .ingredients {
   flex-flow: row wrap;
   align-items: center;
   gap: 0.4rem;
+  /* width: 100%; */
 }
+
+/* .ingredients > div > label,
+input {
+  width: 50%;
+  margin: auto;
+} */
 
 #plus {
   margin: 1rem;
   position: absolute;
   right: 0;
+  padding: 15px;
+}
+
+#less {
+  margin: 1rem;
+  position: absolute;
+  left: 0;
+  padding: 15px;
 }
 
 .delForm {
