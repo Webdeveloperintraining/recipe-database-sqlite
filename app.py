@@ -26,7 +26,7 @@ def get_recipe():
                         ON ri.recipe_id = r.id
                         INNER JOIN ingredients i
                         ON i.id = ri.ingredient_id                        
-                        WHERE r.name LIKE ? OR i.name LIKE ?; ''', ('%' + term + '%', term + '%'))
+                        WHERE r.name LIKE ? OR i.name LIKE ?; ''', (f"%{term}%", f'%{term}%'))
 
         result = cur.fetchall()
 
@@ -34,7 +34,7 @@ def get_recipe():
         cur.close()
         conn.close()
 
-    return render_template('recipes.html', recipes = result, message = "")
+    return render_template('recipes.html', recipes = result)
 
 # This route get all information about a recipe
 @app.route('/recipes/<id>')
@@ -42,7 +42,7 @@ def get_recipe_by_id(id):
     conn = sqlite3.connect("recipes.db")
     cur = conn.cursor()
     cur.execute('''
-                SELECT r.name, r.picture_url, r.instructions, measure, i.name  
+                SELECT r.name, r.picture_url, r.instructions, measure, i.name
                 FROM recipes AS r
                 INNER JOIN recipe_ingredients
                 ON recipe_id = r.id
@@ -91,7 +91,6 @@ def add_recipe():
 
         recipe_id = cur.lastrowid
         
-
         ingredient_ids= []
         for i in ingredients:
             cur.execute("INSERT INTO ingredients (name) VALUES (?);", (i,))
