@@ -10,7 +10,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-# This route gets all recipes from the databasee
+# Gets all recipes from the databasee
 @app.route('/recipes', methods=['GET'])
 def get_recipe():
     if request.method == "GET":
@@ -36,7 +36,7 @@ def get_recipe():
 
     return render_template('recipes.html', recipes = result)
 
-# This route get all information about a recipe
+# Route to get all information about a single recipe
 @app.route('/recipes/<id>')
 def get_recipe_by_id(id):
     conn = sqlite3.connect("recipes.db")
@@ -69,6 +69,7 @@ def get_recipe_by_id(id):
 
     return render_template('recipe.html', recipe_elements = result, ingredients = result2)
 
+# This route deals with the GET and POST request to add a new recipe 
 @app.route('/add-recipe', methods=["GET","POST"])
 def add_recipe():
     if request.method == "POST":
@@ -107,7 +108,7 @@ def add_recipe():
     else:
         return render_template('add.html', message = "", date = date.today() )
     
-
+# This route deals with the GET and POST request to update an existing recipe
 @app.route('/edit-recipe/<id>', methods = ["GET",'POST'])
 def edit_recipe(id):
     if request.method == "POST" and request.form.get("_method") != "DELETE":
@@ -116,7 +117,7 @@ def edit_recipe(id):
         ingredients = json.loads(request.form.get('ingredients'))
         amounts = json.loads(request.form.get('amounts'))
         picture_url = request.form.get('picture_url')
-        modified_date = request.form.get('modified_date')
+        modified_date = date.today()
         
         conn = sqlite3.connect("recipes.db")
         cur = conn.cursor()

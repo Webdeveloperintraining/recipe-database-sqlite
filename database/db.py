@@ -5,6 +5,8 @@ conn = sqlite3.connect("recipes.db")
 cursor = conn.cursor()
 
 # Creating database tables
+
+# Creating Recipes table which stores recipe data
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS  recipes(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -14,7 +16,8 @@ CREATE TABLE IF NOT EXISTS  recipes(
     modified_date TEXT
 );
 """)
-               
+
+# Creating Ingredients table which stores ingredients name
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS ingredients(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -22,6 +25,7 @@ CREATE TABLE IF NOT EXISTS ingredients(
 ); 
 """)
 
+# Creating Recipes_ingredients table which indicates the relationship between recipe and ingredients tables
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS recipe_ingredients (
     recipe_id INTEGER NOT NULL,
@@ -33,8 +37,7 @@ CREATE TABLE IF NOT EXISTS recipe_ingredients (
 );
 """)
 
-# Inserting data into database
-
+# Adding data sample to the database
 cursor.executescript("""
 INSERT INTO recipes (id,name,picture_url,instructions,modified_date) 
     VALUES
