@@ -14,8 +14,6 @@ This is a simple recipe book web application built using Python and Flask. The a
 - Searching for a specific recipe by typing in the search bar.
 - Adding a new recipe by clicking the “Add Meal” button, where you can input the recipe's details.
 
-[Software Demo Video](http://youtube.link.goes.here)
-
 # Relational Database
 
 For this project, I used SQLite as my database engine because I wanted to learn about its characteristics and experiment with features like portability and being lightweight, which are useful for this small-scale project. I use the database to store diverse data about recipes, split into three tables.
