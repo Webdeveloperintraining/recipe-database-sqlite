@@ -54,8 +54,10 @@ The database structure consists of three tables: one stores the recipe ingredien
     - SQLite3: Used to interact with SQLite database and perform CRUD operations.
     - Json: Handle Json returned by HTML forms.
     - date: Retrieve the date recipe was modified.
-- Flask Python Framework: It was used for building the web application and handle HTTP requests
-- Water.css for general styling
+  - Flask Python Framework: It was used for building the web application and handle HTTP requests
+- JavaScript
+- CSS
+  - Water.css CSS library for general styling
 
 # Useful Websites
 
